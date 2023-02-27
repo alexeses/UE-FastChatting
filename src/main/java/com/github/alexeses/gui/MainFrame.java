@@ -23,6 +23,10 @@ public class MainFrame extends JFrame {
         inicio.setVisible(true);
         enviar = new PnlEnviar();
 
+        // No resizes the window
+        super.setResizable(Boolean.FALSE);
+
+
         while (true) {
             try {
                 socket = new Socket("127.0.0.1", 6125);

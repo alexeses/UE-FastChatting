@@ -17,10 +17,14 @@ public class PrincipalFrame extends JFrame {
     public PrincipalFrame(String nombreDelUsuario) {
         super("Chat");
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        super.setSize(602, 249);
+        super.setSize(600, 250);
         super.setLocationRelativeTo(null);
 
         String usuariodelchat = nombreDelUsuario;
+
+        super.setResizable(Boolean.FALSE);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 
 //        inicio = new DialogNewUser(this);
 //        inicio.setVisible(true);
