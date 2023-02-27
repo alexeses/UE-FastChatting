@@ -40,15 +40,5 @@ public class Listener extends Thread{
             }
         }
     }
-
-    public ObjectInputStream getIn() {
-        return in;
-    }
-
-    public void setIn(ObjectInputStream in)
-    {
-        this.in = in;
-    }
-
 }
 

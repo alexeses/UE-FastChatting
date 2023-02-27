@@ -3,7 +3,7 @@ package com.github.alexeses.model;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class Cliente extends Thread{
+public class Cliente extends Thread {
     
     private String name;
     private Socket socket;
@@ -15,7 +15,7 @@ public class Cliente extends Thread{
         this.socket = socket;
         this.queue = queue;
         if (isFirstTime) {
-            this.queue.addMensaje("Hola " + name + ", bienvenido al chat");
+            this.queue.addMensaje(name + ", bienvenido al chat");
         }
     }
 

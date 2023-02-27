@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PnlEnviar extends JPanel{
+public class PnlEnviar extends JPanel {
     private JTextField txtTexto;
     private JButton btnSend;
     private ActionListenerSendMsg listener;
@@ -12,8 +12,8 @@ public class PnlEnviar extends JPanel{
     public void setListener(ActionListenerSendMsg listener) {
         this.listener = listener;
     }
-    
-    public PnlEnviar(){
+
+    public PnlEnviar() {
         txtTexto = new JTextField(20);
         btnSend = new JButton("Enviar");
 
@@ -32,12 +32,12 @@ public class PnlEnviar extends JPanel{
         this.add(txtTexto);
         this.add(btnSend);
     }
-    
-    public void clean(){
+
+    public void clean() {
         this.txtTexto.setText("");
     }
 
-    public String getMensaje(){
+    public String getMensaje() {
         return txtTexto.getText();
     }
 }

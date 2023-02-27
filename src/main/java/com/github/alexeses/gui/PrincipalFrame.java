@@ -73,6 +73,7 @@ public class PrincipalFrame extends JFrame {
                     System.out.println("Error al enviar el mensaje");
                 }
             }
+
         });
 
         pancelDerecho = new PnlDerecho(usuariodelchat, usuariodelchat);
