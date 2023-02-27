@@ -2,9 +2,7 @@ package com.github.alexeses.gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.net.Socket;
 
 public class Messages extends Thread implements Serializable{
@@ -17,7 +15,7 @@ public class Messages extends Thread implements Serializable{
         textArea = new TextArea();
         textArea.setSize(190,390);
         textArea.setEditable(false);
-        textArea.setText("Welcome to Fast Chat :D");
+        //textArea.setText("Welcome to Fast Chat :D");
         jPanel = new JPanel();
         jPanel.add(textArea);
     }
@@ -33,13 +31,16 @@ public class Messages extends Thread implements Serializable{
                 System.out.println("Entro");
                 ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
                 String x = (String) in.readObject();
+                if (x.trim().isEmpty()) {
+                    continue; // Si el mensaje está vacío, continuar con la siguiente iteración del bucle
+                }
                 actualizar(x);
                 textArea.repaint();
-            } catch (IOException e) {
+            } catch (EOFException e) { // Manejar la excepción EOFException
                 textArea.setForeground(Color.RED);
-                textArea.setText("Connection lost.");
+                textArea.setText("Se ha perdido la conexión con el servidor");
                 break;
-            } catch (Exception e) {
+            } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
@@ -49,4 +50,5 @@ public class Messages extends Thread implements Serializable{
         String a = textArea.getText();
         textArea.setText(a +"\n"+x );                
     }
+
 }

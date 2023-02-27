@@ -16,14 +16,19 @@ public class PnlEnviar extends JPanel{
     public PnlEnviar(){
         txtTexto = new JTextField(20);
         btnSend = new JButton("Enviar");
-        
+
         btnSend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                listener.enviarButtonClick();
+                String mensaje = txtTexto.getText().trim();
+                if (!mensaje.isEmpty()) {
+                    listener.enviarButtonClick();
+                } else {
+                    JOptionPane.showMessageDialog(null, "El mensaje no puede estar vacío");
+                }
             }
         });
-        
+
         this.add(txtTexto);
         this.add(btnSend);
     }

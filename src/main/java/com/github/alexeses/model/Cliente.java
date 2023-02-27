@@ -10,10 +10,13 @@ public class Cliente extends Thread{
     private QueueMensajes queue;
     private ArrayList<Cliente> users;
 
-    public Cliente(String name, Socket socket, QueueMensajes queue) {
+    public Cliente(String name, Socket socket, QueueMensajes queue, boolean isFirstTime) {
         this.name = name;
         this.socket = socket;
         this.queue = queue;
+        if (isFirstTime) {
+            this.queue.addMensaje("Hola " + name + ", bienvenido al chat");
+        }
     }
 
     public Socket getSocket() {
@@ -29,4 +32,5 @@ public class Cliente extends Thread{
         Listener listen = new Listener(this.socket, this.name, this.queue);
         listen.start();
     }
+
 }

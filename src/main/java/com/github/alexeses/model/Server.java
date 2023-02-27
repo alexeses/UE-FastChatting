@@ -26,9 +26,9 @@ public class Server {
                 String x = (String) in.readObject();
                 while (true) {
                     try {
-                        Cliente usuario = new Cliente(x, socket, msg);
-                        int numUsers = users.size();
-                        System.out.println("> User " + x + " connected. Number of users connected: " + numUsers + 1);
+                        Cliente usuario = new Cliente(x, socket, msg, true);
+                        int numUsers = users.size() + 1;
+                        System.out.println("> User " + x + " connected. Number of users connected: " + numUsers);
                         users.add(usuario);
                         usuario.setUsers(users);
                         usuario.start();
@@ -42,4 +42,5 @@ public class Server {
             System.out.println("Error 0909: " + e.getMessage());
         }
     }
+
 }

@@ -24,14 +24,20 @@ public class ThreadEscribir extends Thread {
                 Logger.getLogger(ThreadEscribir.class.getName()).log(Level.SEVERE, null, ex);
             }
             if (!queueMsg.isEmpty()) {
-                try {
-                    for (Cliente usuario : users) {
-                        ObjectOutputStream out = new ObjectOutputStream(usuario.getSocket().getOutputStream());
-                        out.writeObject(queueMsg.getMensaje());
-                        out.flush();
+                String mensaje = queueMsg.getMensaje().trim(); // Elimina espacios en blanco al principio y al final del mensaje
+                if (!mensaje.isEmpty()) { // Verifica si el mensaje no está vacío
+                    try {
+                        for (Cliente usuario : users) {
+                            ObjectOutputStream out = new ObjectOutputStream(usuario.getSocket().getOutputStream());
+
+                            out.writeObject(mensaje);
+                            out.flush();
+                        }
+                        queueMsg.popCola();
+                    } catch (Exception ignored) {
                     }
+                } else { // Si el mensaje está vacío o tiene solo caracteres en blanco, omite su envío
                     queueMsg.popCola();
-                } catch (Exception ignored) {
                 }
             }
         }
