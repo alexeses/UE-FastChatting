@@ -26,7 +26,6 @@ public class Cliente extends Thread{
 
     @Override
     public void run() {
-        //System.out.println(name +  " login");
         Listener listen = new Listener(this.socket, this.name, this.queue);
         listen.start();
     }

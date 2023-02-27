@@ -51,8 +51,8 @@ public class Main extends JFrame {
 
     private void confirmExit() {
         int confirm = JOptionPane.showOptionDialog(
-                this, "Are You Sure to Close Application?",
-                "Confirm exit", JOptionPane.YES_NO_OPTION,
+                this, "Quieres cerrar la APP?",
+                "Confirmar salida", JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null, null, null);
         if (confirm == 0) {
             System.exit(0);

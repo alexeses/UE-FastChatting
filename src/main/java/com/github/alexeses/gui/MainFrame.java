@@ -23,9 +23,7 @@ public class MainFrame extends JFrame {
         inicio.setVisible(true);
         enviar = new PnlEnviar();
 
-        // No resizes the window
         super.setResizable(Boolean.FALSE);
-
 
         while (true) {
             try {

@@ -33,21 +33,17 @@ public class Messages extends Thread implements Serializable{
                 System.out.println("Entro");
                 ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
                 String x = (String) in.readObject();
-                //System.out.println("Me enviaron : " + x);
                 actualizar(x);
                 textArea.repaint();
             } catch (IOException e) {
-                // Si se pierde la conexión con el servidor, actualizar el textArea con un mensaje en rojo y salir del ciclo while
                 textArea.setForeground(Color.RED);
                 textArea.setText("Connection lost.");
                 break;
             } catch (Exception e) {
                 e.printStackTrace();
-                System.out.println("Test");
             }
         }
     }
-
 
     public void actualizar(String x){
         String a = textArea.getText();

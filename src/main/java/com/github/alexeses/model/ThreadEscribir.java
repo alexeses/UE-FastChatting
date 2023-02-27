@@ -31,7 +31,7 @@ public class ThreadEscribir extends Thread {
                         out.flush();
                     }
                     queueMsg.popCola();
-                } catch (Exception e) {
+                } catch (Exception ignored) {
                 }
             }
         }

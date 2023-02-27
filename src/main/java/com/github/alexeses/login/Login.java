@@ -11,13 +11,6 @@ public class Login extends JPanel {
         txtUser = new JTextField(15);
         this.add(lblUser);
         this.add(txtUser);
-
-
-        //txtUser = new JTextField(15);
-        //lblUser = new JLabel("Usuario");
-        //
-        //this.add(lblUser);
-        //this.add(txtUser, BorderLayout.WEST);
     }
     
     public String getUser(){

@@ -26,8 +26,6 @@ public class PrincipalFrame extends JFrame {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
 
-//        inicio = new DialogNewUser(this);
-//        inicio.setVisible(true);
         enviar = new PnlEnviar();
 
         int intentos = 0;
@@ -68,7 +66,6 @@ public class PrincipalFrame extends JFrame {
 
                     System.out.println(PrincipalFrame.this.getSize());
                     out = new ObjectOutputStream(socket.getOutputStream());
-                    // TODO: Pendiente guardar mensajes en la cola
                     out.writeObject(enviar.getMensaje());
                     enviar.clean();
 

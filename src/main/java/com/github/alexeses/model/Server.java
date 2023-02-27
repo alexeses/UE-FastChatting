@@ -28,7 +28,7 @@ public class Server {
                     try {
                         Cliente usuario = new Cliente(x, socket, msg);
                         int numUsers = users.size();
-                        System.out.println("> User " + x + " connected. Number of users connected: " + numUsers);
+                        System.out.println("> User " + x + " connected. Number of users connected: " + numUsers + 1);
                         users.add(usuario);
                         usuario.setUsers(users);
                         usuario.start();
