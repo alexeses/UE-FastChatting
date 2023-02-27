@@ -1,5 +1,6 @@
 package com.github.alexeses.login;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import com.github.alexeses.gui.PrincipalFrame;
 
 import javax.swing.*;
@@ -17,6 +18,12 @@ public class Main extends JFrame {
         super.setSize(400, 150);
         super.setLocationRelativeTo(null);
         super.setResizable(Boolean.FALSE);
+
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         l = new Login();
         b = new Botones();
